@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+<struts>
+	
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+
+	<!-- namespace：是对package进行访问 -->
+	<package name="order" extends="struts-default">
+	
+		<action name="order_*" class="com.bwie.action.OrderAction" method="{1}">
+		
+			<result name="list">/WEB-INF/order/list.jsp</result>
+			<result name="success" type="redirectAction">order_list</result>
+			<result name="update">/WEB-INF/order/update.jsp</result>
+			<result name="add">/WEB-INF/order/add.jsp</result>
+			
+		</action>
+	
+	</package>
+
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.bwie.dto.Order" table="t_order">
+        <id name="oid" type="java.lang.Integer">
+            <column name="oid" />
+            <generator class="native"></generator>
+        </id>
+        <property name="oname" type="java.lang.String">
+            <column name="oname" />
+        </property>
+        <property name="otime" type="java.lang.String">
+            <column name="otime" />
+        </property>
+        <property name="payType" type="java.lang.Integer">
+            <column name="payType" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+       	<set name="goods" lazy="false" table="t_og">
+       		<key column="oid"></key>
+       		<many-to-many column="gid" class="com.bwie.dto.Goods"></many-to-many>
+       	</set>
+    </class>
+</hibernate-mapping>
